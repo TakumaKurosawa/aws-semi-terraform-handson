@@ -1,20 +1,14 @@
 terraform {
   required_providers {
     aws = {
-      source  = "hashicorp/aws"
-      version = ">= 3.0"
+      source = "hashicorp/aws"
+      version = "~> 3.6.0"
     }
   }
-  backend "s3" {
-    profile = "aws-semi"
-    bucket  = "kurosawa-aws-semi-tfstate"
-    key     = "kurosawa.tfstate"
-    region  = "ap-northeast-1"
-  }
+  required_version = ">= 0.15.0"
 }
 
-# Configure the AWS Provider
 provider "aws" {
-  region  = "ap-northeast-1"
+  region = "ap-northeast-1"
   profile = "aws-semi"
 }
